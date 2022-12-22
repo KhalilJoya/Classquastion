@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Class quastion file</title>
+</head>
+
+<body>
+    <h1 id="seconds"></h1>
+    <button id="btn1" onclick="start()">Start</button>
+    <button id="btn2" onclick="stop()">Stop</button><br>
+    <script>
+        /* 
+        1. ek number lena hai.
+        -> kya number odd hai ?
+        -> agar odd hai to kya 7 ka multiple hai ?
+        -> Kya number me 15 add krne pr vah number 120 ke brabar hai
+           Yadi teeno condition true hai to ek date ka object lena hai vah us date object me jo number
+           lia hai us number date ki minutes me add krke time print krvana hai
+           Else conditon false hai to tume aaj ki date ko milliseconds me console me print krvana hai
+        */
+        let num0 = 85;
+        if (num0 % 2 != 0 && num0 % 7 === 0 && num0 + 15 === 120) {
+            let d = new Date();
+            d.setMinutes(d.getMinutes + num0);
+            console.log(d);
+        } else {
+            console.log(Date.UTC(num0));
+        }
+
+
+        /*
+    2.  ek number lena hia yadi vah number even hai to 100 print krna hai
+        otherwise vhi number print krna hai
+        But is solution ko 3 tarike se krna hai
+        if else
+        ternary operator
+        || operator Short circuiting
+    */
+        //Using if else
+        let num1 = 31;
+        let num2 = 100;
+        if (num1 % 2 === 0) {
+            console.log(num2);
+        } else {
+            console.log(num1);
+        }
+
+        //Using ternary operator
+        num1 % 2 === 0 ? console.log(num2) : console.log(num1);
+
+        //Using Short Circuting
+        let ans = num1 % 2 === 0 || num1;
+        if (ans === num1) {
+            console.log(num1);
+        } else {
+            console.log(num2);
+        }
+
+
+        /*
+        3. value leni hai country population
+           agar vah population 1.3 crore se jyada hai to China print krna hia
+           agar 1.3 se kam and 1 crore se jyada to India print krna hai
+           else Pakistan is question ko switch case se krna hai
+        */
+        let population = 1.1;
+        if (population >= 1.3) {
+            console.log("China");
+        } else if (population < 1.3 && population > 1) {
+            console.log("India");
+        } else {
+            console.log("Pakistan");
+        }
+
+        let desigain = true;
+        switch (desigain) {
+            case population >= 1.3:
+                console.log("China");
+                break;
+            case population < 1.3 && population > 1:
+                console.log("India");
+                break;
+            default:
+                console.log("Pakistan");
+                break;
+        }
+
+
+        /*
+        4. My Name is Sajid Ali Khan. Zahid bhai jyada bolte hain. Inko chup krana pdega.
+           Is string me Sajid ko Zahid se and Zahid ko Sajid se replace krna hai. aur chup ko silent
+           se replace krna hai. Iske alava jitne b words hai is string me vo sb words ka phle character
+           Capital hona chahiye. Finally tume converted String print krvani hai
+           My Name Is Zahid Ali Khan. Sajid Bhai Jyada Bolte Hain. Inko Chup Krana Pdega
+        */
+        let str =
+            "my mame is sajid ali khan. zahid bhai jyada bolte hain. Inko chup krana pdega";
+        let arr0 = str.split(" ");
+        for (let i = 0; i < arr0.length; i++) {
+            arr0[i] = arr0[i].substring(0, 1).toUpperCase().concat(arr0[i].slice(1));
+            if (arr0[i].toLowerCase() == "sajid") {
+                arr0.splice(i, 1, "Zahid");
+            } else if (arr0[i].toLowerCase() == "zahid") {
+                arr0.splice(i, 1, "Sajid");
+            } else if (arr0[i].toLowerCase() == "chup") {
+                arr0.splice(i, 1, "silent");
+            }
+        }
+        console.log(arr0.join(" "));
+
+        ///////////////////
+        str = "hello my name is khalil khan";
+        let ans1 = str.split(" ").reduce(function (answer, value) {
+            return answer + " " + (value[0].toUpperCase() + value.slice(1));
+        }, "");
+        console.log(ans1);
+
+
+        /*
+        5. 9581894461 is number ko convert krna hai
+           ***189xxxx
+        */
+        let moNum = "9881894461";
+        let sub = moNum.substring(3, 6);
+        let pad = sub.padStart(6, "*");
+        let padE = pad.padEnd(pad.length + moNum.slice(6).length, "x");
+        console.log(padE);
+
+
+        /*
+        6. Ye pattern print krna hia
+           *****
+           ****
+           ***
+           **
+           *
+           **
+           ***
+           ****
+           *****
+        */
+        for (let i = 1; i <= 5; i++) {
+            for (let j = i; j <= 5; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        for (let i = 2; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+
+        /*
+        7.  Array [1,2,3,4,5,6,7] answer 65
+            har number ko 10 se multiply krna hai
+            check krna hia kaunsa number 50 se bda hai
+            jo b numbers bachenge unka sum krna hia
+            sare numbers ka sum krne ke bad un numbers ka average btana hai
+        */
+        let arr2 = [1, 2, 3, 4, 5, 6, 7];
+        let sum = 0;
+        let ave = 0;
+        let arr3 = arr2.forEach(function (val) {
+            let arr = val * 10;
+            if (50 < arr) {
+                ave += arr;
+            } else {
+                sum += arr;
+            }
+        });
+        console.log(sum);
+        console.log(ave / 2);
+
+        ///////////////
+        let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let length = 0;
+        let ans2 = arr1
+            .map(function (val) {
+                return val * 10;
+            })
+            .filter(function (val) {
+                return val > 50;
+            })
+            .reduce(function (total, val) {
+                ++length;
+                return total + val;
+            });
+        console.log(ans2 / length);
+
+
+        /*
+        8. DOM HTML page tume counter chlana hai
+           100
+           99
+           98
+           to
+           1
+        */
+        let second = document.getElementById("seconds");
+        let sec = 100;
+        let In = setInterval(function () {
+            second.textContent = sec;
+            sec -= 1;
+        }, 1000);
+
+        // Automatice Interval off
+        setTimeout(function () {
+            clearInterval(In);
+        }, 11000);
+
+        // Click button Interval off
+        function stop() {
+            setTimeout(function () {
+                clearInterval(In);
+            }, 0);
+        }
+
+        // Click button Start Interval
+        let desi = true;
+        function start() {
+            setInterval(function () {
+                if (desi) {
+                    second.textContent = sec;
+                    if (sec == 0) {
+                        alert("Game over");
+                        desi = false;
+                    }
+                    sec -= 1;
+                }
+            }, 1000);
+        }
+
+
+        /*
+        9. Ek object1 bnana hai person details ka and iski deep copy krni hai
+        String me convert krna hai. fir Dubara se Object bnana hai Object2
+        if object1 === object2
+        Yes/No print krvana hai
+        Object2 se object destructring krke name, mobile and pincode print krvana hai
+        */
+        let person1 = {
+            myName: "Khalil Joya",
+            mobile: 907983575,
+            address: {
+                city: "jaipur",
+                pincode: 302012,
+            },
+        };
+
+        let person2 = JSON.parse(JSON.stringify(person1));
+        if (person1 === person2) {
+            console.log("yes");
+        } else {
+            let {
+                myName,
+                mobile,
+                address: { pincode },
+            } = person2;
+            console.log(myName, mobile, pincode);
+        }
+
+
+        /*
+        10. [1,2,3,4,1,2,3,1,2,3,1,5,6,7,4,1]
+            Tume ye btana hai ki kaunsa number kitni bar repeat hua hai aur kaunsa number maximum bar repeat hua hia
+            1:5
+            2:4
+            Number 1 total 10 times repeat hua hai
+        */
+        let arr = [1, 2, 3, 4, 1, 2, 3, 1, 2, 3, 2, 2, 2, 1, 5, 6, 7, 4, 1];
+        let map = new Map();
+        let max = 1;
+        let num = 0;
+        for (let key of arr) {
+            let value = map.get(key);
+            if (value) {
+                let newValue = value + 1;
+                map.set(key, newValue);
+                if (max < newValue) {
+                    max = newValue;
+                    num = key;
+                }
+            } else {
+                map.set(key, 1);
+            }
+        }
+        console.log(map);
+        console.log(`Number ${num} total ${max} bar repeat hoa hai`);
+    </script>
+    <script src="Classquastion.js"></script>
+</body>
+
+</html>
