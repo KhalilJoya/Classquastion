@@ -291,6 +291,65 @@
         }
         console.log(map);
         console.log(`Number ${num} total ${max} bar repeat hoa hai`);
+
+
+
+
+        ///////////////          Quastion Pdf            /////////////
+        // 1.
+        const iteam = ["a", "b", "a", "a", "b", "c", "d", "e"]
+        function CountDuplicates(data) {
+            const ans = {}
+            data.forEach(a => {
+                ans[a] = (ans[a] || 0) + 2
+            });
+            return ans
+        }
+        console.log(CountDuplicates(iteam))
+
+
+        // 2.
+        const Name = "My name is Khalil Khan Joya"
+        function reverse(val) {
+            const arr = val.split(" ")
+            arr.reverse();
+            return arr.join(" * ")
+        }
+        console.log(reverse(Name))
+
+        // 3.
+        const input = "My name is Khalil Khan Joya"
+        function reverse1(val1) {
+            const arr1 = val1.split(" ")
+            const ans = arr1.map(a => {
+                return a.split("").reverse().join("")
+            })
+
+            return ans.join("  ")
+        }
+        console.log(reverse1(input))
+
+        // 4. 
+        const names = "My name is Khalil Khan Joya"
+        function add(value) {
+            const arr2 = value.split(" ")
+            arr2.sort((a, b) => {
+                return a.length - b.length
+            })
+            return arr2.join(" ")
+        }
+        console.log(add(names))
+
+        // 5.
+        const x = "Skills I Must Know Before I Learn Javascript"
+        const ans0 = x.split("I").join("You")
+        console.log(ans0)
+
+
+
+
+
+
     </script>
     <script src="Classquastion.js"></script>
 </body>
