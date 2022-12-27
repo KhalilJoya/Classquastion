@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    <h1 id="seconds"></h1>
+    <!-- <h1 id="seconds"></h1>
     <button id="btn1" onclick="start()">Start</button>
-    <button id="btn2" onclick="stop()">Stop</button><br>
+    <button id="btn2" onclick="stop()">Stop</button><br> -->
     <script>
         /* 
         1. ek number lena hai.
@@ -329,7 +329,7 @@
         }
         console.log(reverse1(input))
 
-        // 4. 
+        // 4.
         const names = "My name is Khalil Khan Joya"
         function add(value) {
             const arr2 = value.split(" ")
@@ -347,9 +347,64 @@
 
 
 
+        // 6. Write a JavaScript function to get the week start date.
+        function startOfWeek(date) {
+            var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+            return new Date(date.setDate(diff));
+        }
+        date = new Date();
+        console.log(startOfWeek(date).toString());
 
 
+        // 7. Write a JavaScript function to get the week end date.
+        function endOfWeek(date) {
+            var lastday = date.getDate() - (date.getDay() - 1) + 6;
+            return new Date(date.setDate(lastday));
+        }
+        date1 = new Date();
+        console.log(endOfWeek(date1).toString());
 
+
+        // 8. Write a JavaScript function to get the month start date
+        function startOfMonth(date) {
+            return new Date(date.getFullYear(), date.getMonth(), 1);
+        }
+        date2 = new Date();
+        console.log(startOfMonth(date2).toString());
+
+        // 9. Write a JavaScript function to get the month end date
+        function endOfMonth(date) {
+            return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+        }
+        date3 = new Date();
+        console.log(endOfMonth(date3).toString());
+
+        // 10.  Write a JavaScript function to check if a given date is between two other dates
+        let date = "01/01/2003"
+        let date1 = "01/01/2005"
+        let date2 = "01/01/2007"
+        if (date <= date1 && date2 >= date1) {
+            console.log("Yes")
+        } else {
+            console.log("No")
+        }
+
+        //
+        let d1 = new Date("2002-1-1")
+        let d2 = new Date("2003-1-1")
+        let d3 = new Date("2004-1-1")
+
+        function date(dt1, dt2, dt3) {
+            let date1 = Date.UTC(dt1.getDay(), dt1.getMonth(), dt1.getFullYear())
+            let date2 = Date.UTC(dt2.getDay(), dt2.getMonth(), dt2.getFullYear())
+            let date3 = Date.UTC(dt3.getDay(), dt3.getMonth(), dt3.getFullYear())
+            if (date1 < date2 && date2 < date3) {
+                console.log("True")
+            } else {
+                console.log("false")
+            }
+        }
+        date(d1, d2, d3)
     </script>
     <script src="Classquastion.js"></script>
 </body>
