@@ -405,8 +405,65 @@
             }
         }
         date(d1, d2, d3)
+
+        /* 11. Ek students ki list bnani hai. array total students 10
+        Ek map bnana hai.usme key student ka name hoga au value ek array hoga.Array me month ki entry hogi
+         Nodejs 
+        random number niklana hai random number 20 tak 
+        agar random number javascript ke students ki index aati hai to ye check krna hai ki us student ne atleast 3 months ki fees di hai ya ni 
+        agar javascript ka student hai plus 3 months ki fees di hai to uska nodejs me admission krdo */
+
+        let javaScriptStudents = ["Khalil", "Sameer", "Ashraf", "Rafik", "Shermohammad", "Nadim", "Sohal", "Arman", "Farman", "Hakam"];
+        let studentFeesMap = new Map();
+        studentFeesMap
+            .set(javaScriptStudents[0], [1, 2, 3])
+            .set(javaScriptStudents[1], [1, 2, 3])
+            .set(javaScriptStudents[2], [1, 3])
+            .set(javaScriptStudents[3], [1, 2, 3, 4, 5])
+            .set(javaScriptStudents[4], [])
+            .set(javaScriptStudents[5], [1])
+            .set(javaScriptStudents[6], [1, 2])
+            .set(javaScriptStudents[7], [1, 2, 3])
+            .set(javaScriptStudents[8], [1, 2])
+            .set(javaScriptStudents[9], [1, 2, 3]);
+        let promise = new Promise(function (success, fail) {
+            let studentIndex = Math.trunc(Math.random() * 20);
+            let y = studentFeesMap.get(javaScriptStudents[studentIndex]);
+            try {
+                if (javaScriptStudents[studentIndex] && y.length >= 3) {
+                    success();
+                } else {
+                    fail();
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
+        promise
+            .then(
+                () => admission(),
+                () => rejected()
+            )
+            .then(() => {
+                console.log("Deposit fees");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        function admission() {
+            console.log("addmission kardo");
+        }
+
+        function rejected() {
+            console.log("Admission denied");
+            throw new Error("Student admission not allowed");
+        }
+
+
+
     </script>
-    <script src="Classquastion.js"></script>
 </body>
 
 </html>
